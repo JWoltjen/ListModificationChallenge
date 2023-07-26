@@ -144,8 +144,8 @@ namespace ListModificationChallenge
 
             // TODO: Add a record to the beginning of the incoming list and return a new list that includes newPerson
             // HACK: The following line is incorrect but is used to get this to compile
-            output = people;
-
+            output = people.ToList();
+            output.Insert(0, newPerson);
             return output;
         }
 
