@@ -194,7 +194,8 @@ namespace ListModificationChallenge
         {
             PersonModel newPerson = new PersonModel { FirstName = "Greg", LastName = "Brown" };
 
-            // TODO: Add a record after Paul Jones in the incoming list
+            int index = (people.Count) / 2;
+            people.Insert(index +1 , newPerson);
             
         }
 
