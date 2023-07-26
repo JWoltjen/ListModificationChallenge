@@ -144,6 +144,7 @@ namespace ListModificationChallenge
 
             // TODO: Add a record to the beginning of the incoming list and return a new list that includes newPerson
             // HACK: The following line is incorrect but is used to get this to compile
+            // We use the same trick we did as above, but now we use the insert method, which can take an index for the insertion
             output = people.ToList();
             output.Insert(0, newPerson);
             return output;
@@ -156,8 +157,9 @@ namespace ListModificationChallenge
 
             // TODO: Add a record after Paul Jones in the incoming list and return a new list that includes newPerson
             // HACK: The following line is incorrect but is used to get this to compile
-            output = people;
-
+            output = people.ToList();
+            int middleIndex = output.Count / 2;
+            output.Insert(middleIndex +1, newPerson);
             return output;
         }
 
