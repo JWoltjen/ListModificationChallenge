@@ -126,7 +126,13 @@ namespace ListModificationChallenge
 
             // TODO: Add a record to the end of the incoming list and return a new list that includes newPerson
             // HACK: The following line is incorrect but is used to get this to compile
-            output = people;
+
+            // We cannot simply add newPerson to the list that assigns 
+            // output to the value of people because doing that would also change the original people list. 
+            // So instead, we use .ToList() which creates a new list that is a copy of the original list. 
+            // This new list is separate from the original list, so we can add newPerson to the new list without affecting the original list.
+            output = people.ToList();
+            output.Add(newPerson);
 
             return output;
         }
@@ -173,7 +179,7 @@ namespace ListModificationChallenge
             PersonModel newPerson = new PersonModel { FirstName = "Greg", LastName = "Brown" };
 
             // TODO: Add a record to the end of the incoming list
-
+            
         }
 
         private static void InsertRecordFirstIntoList(List<PersonModel> people)
@@ -181,7 +187,7 @@ namespace ListModificationChallenge
             PersonModel newPerson = new PersonModel { FirstName = "Greg", LastName = "Brown" };
 
             // TODO: Add a record to the beginning of the incoming list
-
+            
         }
 
         private static void InsertRecordInTheMiddleOfTheList(List<PersonModel> people)
@@ -189,7 +195,7 @@ namespace ListModificationChallenge
             PersonModel newPerson = new PersonModel { FirstName = "Greg", LastName = "Brown" };
 
             // TODO: Add a record after Paul Jones in the incoming list
-
+            
         }
 
         private static void SortAList(List<PersonModel> people)
