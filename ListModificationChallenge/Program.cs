@@ -125,7 +125,6 @@ namespace ListModificationChallenge
             PersonModel newPerson = new PersonModel { FirstName = "Greg", LastName = "Brown" };
 
             // TODO: Add a record to the end of the incoming list and return a new list that includes newPerson
-            // HACK: The following line is incorrect but is used to get this to compile
 
             // We cannot simply add newPerson to the list that assigns 
             // output to the value of people because doing that would also change the original people list. 
@@ -143,7 +142,6 @@ namespace ListModificationChallenge
             PersonModel newPerson = new PersonModel { FirstName = "Greg", LastName = "Brown" };
 
             // TODO: Add a record to the beginning of the incoming list and return a new list that includes newPerson
-            // HACK: The following line is incorrect but is used to get this to compile
             // We use the same trick we did as above, but now we use the insert method, which can take an index for the insertion
             output = people.ToList();
             output.Insert(0, newPerson);
@@ -156,7 +154,6 @@ namespace ListModificationChallenge
             PersonModel newPerson = new PersonModel { FirstName = "Greg", LastName = "Brown" };
 
             // TODO: Add a record after Paul Jones in the incoming list and return a new list that includes newPerson
-            // HACK: The following line is incorrect but is used to get this to compile
             output = people.ToList();
             int middleIndex = output.Count / 2;
             output.Insert(middleIndex +1, newPerson);
@@ -169,9 +166,14 @@ namespace ListModificationChallenge
 
             // TODO: Sort the incoming list values by fullname (ascending) and return a new list
             // HACK: The following line is incorrect but is used to get this to compile
-            output = people;
-
-            return output;
+            output = people.ToList();
+            
+            var sortedOutput = output.OrderBy(x => x.FullName).ToList();
+            foreach (PersonModel person in sortedOutput)
+            {
+                Console.WriteLine($"{person.FullName}");
+            }
+            return sortedOutput;
         }
         #endregion
 
