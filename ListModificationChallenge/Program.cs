@@ -169,10 +169,6 @@ namespace ListModificationChallenge
             output = people.ToList();
             
             var sortedOutput = output.OrderBy(x => x.FullName).ToList();
-            foreach (PersonModel person in sortedOutput)
-            {
-                Console.WriteLine($"{person.FullName}");
-            }
             return sortedOutput;
         }
         #endregion
@@ -183,7 +179,8 @@ namespace ListModificationChallenge
             PersonModel newPerson = new PersonModel { FirstName = "Greg", LastName = "Brown" };
 
             // TODO: Add a record to the end of the incoming list
-            
+            people.Add(newPerson);
+
         }
 
         private static void InsertRecordFirstIntoList(List<PersonModel> people)
